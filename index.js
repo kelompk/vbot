@@ -73,7 +73,7 @@ async function startBot() {
     }
 
     // ---------------- Cron Job: Daily 6AM Reminder ----------------
-    cron.schedule("0 6 * * 1-5", async () => {
+    cron.schedule("0 5 * * 1-5", async () => {
         await sendToTargetGroup(`📌 Daily Classes:\n\n${formatToday()}`);
         console.log("✅ Sent daily timetable to group");
     });
