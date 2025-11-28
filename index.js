@@ -133,5 +133,13 @@ startBot().catch(err => console.log("Error starting bot:", err));
 // ---------------- HTTP Server for Render ----------------
 const app = express();
 const PORT = process.env.PORT || 3000;
+
+// Health check route for Render
+app.get('/healthz', (req, res) => {
+    res.status(200).json({ status: 'ok' });
+});
+
+// Default homepage route
 app.get('/', (req, res) => res.send('Bot is running'));
+
 app.listen(PORT, () => console.log(`✅ Listening on port ${PORT}`));
